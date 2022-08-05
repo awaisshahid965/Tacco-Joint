@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script defer type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+	<style type="text/css">
+
+		@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;700&display=swap');
+
+		:root {
+			--color-gradient-1: #f23d6a;
+			--color-gradient-2: #8144c6;
+			--color-orange: #ffc500;
+
+			--font-dark: #333;
+			--bg-white: #ffffff;
+		}
+
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		html {
+			font-size: 10px;
+		}
+
+		body {
+			letter-spacing: .5px;
+			font-family: 'Nunito Sans', sans-serif;
+			color: var(--font-dark);
+
+			background-image: linear-gradient(to right, var(--color-gradient-1), var(--color-gradient-2));
+			min-height: 100vh;
+
+			padding: 5rem 3rem;
+
+			user-select: none;
+		}
+
+		a:link,
+		a:visited {
+			color: inherit;
+			text-decoration: none;
+			display: inline-block;
+		}
+
+		button {
+			outline: none;
+			cursor: pointer;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
+
+
+
+
+
+		nav {
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+			grid-column-gap: 1rem;
+			margin-bottom: 3rem;
+		}
+
+		nav a {
+			text-align: center;
+			background-color: var(--color-orange);
+			font-size: 2rem;
+			font-weight: 800;
+			text-transform: capitalize;
+			padding: 1rem 1rem;
+		}
+
+		/* headings */
+
+		h2 {
+			font-size: clamp(2rem, 2vw, 3rem);
+		}
+
+		/* utilities */
+
+		.btn {
+			font-family: inherit;
+			padding: 1.2rem 2.5rem 1rem;
+			border: 0;
+		}
+
+		.btn_primary {
+			background-color: var(--color-orange);
+			transition: .25s all;
+		}
+
+		.btn_primary:hover {
+			box-shadow: 0 2px 0 2px deeppink, 0 5px 0 5px crimson;
+		}
+
+		.header_banner {
+			background-color: #fff;
+			background-image: url('https://images-gmi-pmc.edge-generalmills.com/e59f255c-7498-4b84-9c9d-e578bf5d88fc.jpg');
+			background-size: cover;
+			background-position: center;
+			padding-top: 20rem;
+			padding-left: 11rem;
+
+			grid-area: main;
+		}
+
+		.header_banner > * {
+			background-color: var(--color-orange);
+			width: max-content;
+			padding: 5px;
+		}
+
+		.header_banner > *:first-child {
+			font-size: 2.4rem;
+			margin-bottom: 2rem;
+		}
+
+		.header_banner > *:last-child {
+			font-size: 14px;
+			font-weight: 600;
+		}
+
+		header .cardt {
+			grid-area: cardt;
+		}
+
+		header .cardb {
+			grid-area: cardb;
+		}
+
+		.header_card {
+			background-color: var(--color-orange);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.header_card > * > * {
+			text-align: center;
+		}
+
+		.header_card > * > *:first-child {
+			font-size: 3rem;
+		}
+
+		.header_card > * > *:last-child {
+			    font-size: 14px;
+		}
+
+
+		header {
+			display: flex;
+			gap: 1.5rem;
+			/*grid-template-rows: repeat(2, 207.5px);*/
+			/*grid-template-columns: 1fr 40rem;*/
+			/*grid-gap: 1.5rem;*/
+			/*grid-template-areas: "main cardt" "main cardb";*/
+		}
+
+		header .header_banner{
+			flex-grow: 1;
+			flex-shrink: 1;
+			flex-basis: auto;
+		}
+
+		header .hearder_card--wrapper {
+			flex-grow: 0;
+			flex-shrink: 0;
+			flex-basis: 40rem;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.hearder_card--wrapper > * {
+			flex-basis: 50%;
+		}
+
+		.hearder_card--wrapper > *:first-child {
+			margin-bottom: 1.5rem;
+		}
+
+		.header_banner,
+		.hearder_card--wrapper {
+			min-height: 41.5rem;
+		}
+
+
+
+
+		/* menu_cards */
+
+		.menu_cards {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+			grid-gap: 2rem;
+			margin: 2rem 0;
+		}
+
+		.menu_cards .menu_card {
+			background-color: var(--bg-white);
+			text-align: center;
+			padding: 3rem 2rem;
+		}
+
+		.menu_cards .menu_card .icon {
+			font-size: 4rem;
+			line-height: 1;
+		}
+
+		.menu_cards .menu_card .heading {
+			font-size: 2rem;
+			font-weight: bold;
+			margin-bottom: 0.5rem;
+		}
+
+		.menu_cards .menu_card .desc {
+			font-size: 1.4rem;
+		}
+
+
+
+
+
+		/* features */
+
+		.features {
+			background-color: var(--bg-white);
+			padding: 4rem;
+			display: grid;
+			grid-template-columns: 40rem 1fr;
+			grid-column-gap: 4rem;
+			align-items: center;
+		}
+
+		.features .feature_content p {
+			font-size: 14px;
+			font-weight: 400;
+			margin-top: 5px;
+			margin-bottom: 1rem;
+		}
+
+
+		/* instant-gallery */
+
+		.instant {
+			margin-top: 2rem;
+		}
+
+		.instant h2 {
+			text-align: center;
+			position: relative;
+			margin-bottom: 1rem;
+		}
+
+		.instant h2::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0;
+			right: 0;
+			height: 10px;
+			background-image: linear-gradient(to right, transparent 5%, var(--color-orange) 15%, var(--color-orange) 85%, transparent);
+		}
+
+		.instant h2 span {
+			display: inline-block;
+			color: #fff;
+			z-index: 100;
+			position: relative;
+			background-image: linear-gradient(to right, var(--color-gradient-1), var(--color-gradient-2));
+			background-size: 100vw 100vh;
+			background-position: center;
+			padding: 1rem 2rem;
+		}
+
+		.instant-gallery {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			grid-gap: 1rem;
+		}
+		
+	</style>
+</head>
+<body>
+
+	<nav>
+		<a href="#">Tacos</a>
+		<a href="#">Beers</a>
+		<a href="#">Wine</a>
+		<a href="#">desserts</a>
+		<a href="#">reservations</a>
+	</nav>
+
+	<header>
+		<div class="header_banner">
+			<h1>Terry's Tacco Joint</h1>
+			<p>Preety good Tacost</p>
+		</div>
+
+		<div class="hearder_card--wrapper">
+			<div class="header_card cardt">
+				<div>
+					<p>$1.99</p>
+					<p>Tacoos</p>
+				</div>
+			</div>
+
+			<div class="header_card cardb">
+				<div>
+					<p>$1.99</p>
+					<p>Beers</p>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="menu_cards">
+		<div class="menu_card">
+			<div class="icon">
+				<ion-icon name="alarm-outline"></ion-icon>
+			</div>
+			<p class="heading">Tacoos</p>
+			<p class="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, ipsam.</p>
+		</div>
+
+		<div class="menu_card">
+			<div class="icon">
+				<ion-icon name="alarm-outline"></ion-icon>
+			</div>
+			<p class="heading">Tacoos</p>
+			<p class="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, ipsam.</p>
+		</div>
+
+		<div class="menu_card">
+			<div class="icon">
+				<ion-icon name="alarm-outline"></ion-icon>
+			</div>
+			<p class="heading">Tacoos</p>
+			<p class="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, ipsam.</p>
+		</div>
+
+		<div class="menu_card">
+			<div class="icon">
+				<ion-icon name="alarm-outline"></ion-icon>
+			</div>
+			<p class="heading">Tacoos</p>
+			<p class="desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, ipsam.</p>
+		</div>
+	</div>
+
+	<div class="features">
+
+		<div class="img">
+			<img src="https://s.clipartkey.com/mpngs/s/142-1429913_png-black-and-white-library-tacos-clipart-taco.png" alt="taco" />
+		</div>
+
+		<div class="feature_content">
+			<h2>Feature taco</h2>
+			<p class="f-desc">
+				Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Illo, natus esse totam est necessitatibus
+					<br>
+				aliquid iste inventore doloribus earum quod vel impedit non iusto illum.
+			</p>
+			<button class="btn btn_primary">Learn more</button>
+		</div>
+
+	</div>
+
+	<section class="instant">
+		<h2>
+			<span>Instant Grams</span>
+		</h2>
+		<div class="instant-gallery">
+
+			<div class="gs-image">
+				<img src="https://pbs.twimg.com/media/Ejm47eTWoAUBHQE.jpg:large" alt="">
+			</div>
+
+			<div class="gs-image">
+				<img src="https://www.eatright.org/-/media/eatrightimages/health/pregnancy/fertilityandreproduction/bean-corn-tomato-salad-1056788234.jpg?h=450&amp;w=600&amp;la=en&amp;hash=8E919F45C2E0A8D540BB725663DD2F7F3A8CB804" alt="">
+			</div>
+
+			<div class="gs-image">
+				<img src="https://who-euro.shorthandstories.com/food-and-nutrition-tips-during-self-quarantine/assets/WoizMxIOjR/cover-photo-2560x1922.jpeg" alt="">
+			</div>
+
+			<div class="gs-image">
+				<img src="https://post.greatist.com/wp-content/uploads/2020/09/fried-eggs-plate-breakfast-protein-1200x628-facebook-1200x628.jpg" alt="">
+			</div>
+
+			<div class="gs-image">
+				<img src="https://media-cdn.tripadvisor.com/media/photo-s/17/f5/39/f7/fooood-at-the-food-department.jpg" alt="">
+			</div>
+
+			<div class="gs-image">
+				<img src="https://admin.sajilomeals.com/main/chef/1618241094-foodlife-20jpg.jpg" alt="">
+			</div>
+
+			<div class="gs-image">
+				<img src="https://foodtank.com/wp-content/uploads/2016/02/Locol_Burgs-770x462.jpg" alt="">
+			</div>
+
+			<div class="gs-image">
+				<img src="https://travel.home.sndimg.com/content/dam/images/travel/fullset/2017/01/11/iStock-612497930_Australian-meat-pie.jpg.rend.hgtvcom.966.725.suffix/1491580707834.jpeg" alt="">
+			</div>
+
+			<div class="gs-image">
+				<img src="https://static01.nyt.com/images/2019/12/11/dining/05best-hungry-dish4/05best-hungry-dish4-superJumbo-v2.jpg" alt="">
+			</div>
+
+			<div class="gs-image">
+				<img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/3eb98f11-025f-4496-9bd7-8015f6ccebfe-7-arepa.jpg" alt="">
+			</div>
+			
+		</div>
+	</section>
+	
+</body>
+</html>
